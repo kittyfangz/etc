@@ -1,0 +1,11 @@
+#!/bin/sh
+
+battery () {
+	level=$(get_battery)
+	if [ -n $level -a $level -le 20 ]
+	then
+		notify-send -u critical "LOW BATTERY" "BATTERY AT ${level}%"
+	fi
+}
+
+battery

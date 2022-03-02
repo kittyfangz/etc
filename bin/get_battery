@@ -1,0 +1,4 @@
+#!/bin/sh
+batfile="/sys/class/power_supply/BAT0/capacity"
+
+[ -e "$batfile" ] && cat "$batfile"

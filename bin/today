@@ -1,0 +1,15 @@
+#!/bin/sh
+#show today's events
+calfile="$HOME/.today"
+dayname=$(date +%a)
+
+echo "Today's events:"
+
+while read line
+do
+	lineday=${line%% *} # takes first word (day name)
+	if [ "$dayname" = "$lineday" ]
+	then
+		echo "${line#* }"
+	fi
+done < $calfile

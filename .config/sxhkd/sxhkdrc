@@ -1,0 +1,29 @@
+super + shift + c
+	bspc node -c
+
+super + {_,shift + }{h,j,k,l}
+	bspc node {-f,-s} {west,south,north,east}
+
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f, node -d} '^{1-9},10}'
+
+
+super + {n, m, s}
+	urxvt -e sh -c {newsboat, ncmpcpp, alsamixer}
+
+
+super + shift + Return
+	urxvtc
+
+super + p
+	rofi -show run
+
+XF86AudioRaiseVolume
+	amixer set Master 5%+
+
+XF86AudioLowerVolume
+	amixer set Master 5%-
+
+XF86AudioMute
+	amixer set Master toggle
+
