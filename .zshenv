@@ -1,4 +1,4 @@
 path+=$HOME/bin
-EDITOR=nvim
-VISUAL=nvim
-PAGER=less
+export EDITOR=nvim
+export VISUAL=nvim
+export PAGER=less
