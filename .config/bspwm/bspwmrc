@@ -1,7 +1,14 @@
 #!/bin/sh
 pgrep -x sxhkd > /dev/null || SXHKD_SHELL=/usr/bin/dash sxhkd -m -1 &
+$HOME/.config/lemonbar/bar.sh &
 
-bspc config border_width 0
+bspc config window_gap 0
 
 bspc monitor -a 1 2 3 4 5
 
+xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" $(xdo id -n lemonbar)
+xsetroot -cursor_name left_ptr
+
+bspc rule -a Emacs state=tiled
+bspc rule -a mpv state=floating sticky=on rectangle=426x240+1450+800
+bspc rule -a Zathura state=tiled
