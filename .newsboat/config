@@ -1,0 +1,12 @@
+browser		"qutebrowser"
+player		"mpv"
+
+auto-reload	yes
+delete-played-files yes
+download-path	"~/rxv/pod/%h/%n"
+podcast-auto-enqueue yes
+
+bind-key 	G	end
+bind-key	g	home
+bind-key	j	down
+bind-key	k	up
