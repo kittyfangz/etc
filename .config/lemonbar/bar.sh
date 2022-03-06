@@ -1,2 +1,2 @@
 #!/bin/sh
-conky | lemonbar
+conky | lemonbar -f "-*-terminus-medium-*-normal-*-12-*-*-*-*-*-*-*"

@@ -27,3 +27,20 @@ XF86AudioLowerVolume
 XF86AudioMute
 	amixer set Master toggle
 
+XF86AudioPlay
+	mpc toggle
+
+XF86AudioStop
+	mpc stop
+
+XF86AudioPrev
+	mpc prev
+
+XF86AudioNext
+	mpc next
+
+XF86MonBrightnessUp
+	brightnessctl set +5%
+
+XF86MonBrightnessDown
+	brightnessctl set 5%-
