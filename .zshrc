@@ -15,6 +15,9 @@ alias emacs="emacs -nw"
 alias ls="exa -l"
 alias vi="nvim"
 
+PS1="%m:%2~%# "
+RPS1="%D{%Y-%m-%d %H:%M:%S}"
+
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 

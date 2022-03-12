@@ -3,7 +3,7 @@
 calfile="$HOME/.today"
 dayname=$(date +%a)
 
-[ -f "$calfile" ] || exit
+[ -f "$calfile" ] || exit 1
 
 echo "Today's events:"
 

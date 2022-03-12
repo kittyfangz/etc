@@ -12,3 +12,4 @@ xsetroot -cursor_name left_ptr
 bspc rule -a Emacs state=tiled
 bspc rule -a mpv state=floating sticky=on rectangle=426x240+1450+800
 bspc rule -a Zathura state=tiled
+bspc rule -a editor state=floating
