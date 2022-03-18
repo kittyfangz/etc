@@ -1,5 +1,5 @@
 #!/bin/sh
-trans -no-ansi -show-alternatives n "$QUTE_SELECTED_TEXT" | sed 's/\"/\\\"/g' |
+trans -no-ansi -b "$QUTE_SELECTED_TEXT" | sed 's/\"/\\\"/g' |
 	while read -r line
 	do
 		echo "message-info \"${line}\"" >> "$QUTE_FIFO"
