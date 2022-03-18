@@ -34,6 +34,7 @@ fi
 urxvtd -q -o -f &
 dunst &
 xss-lock xlock &
+$HOME/.fehbg &
 
 session=${session:-bspwm}
 
