@@ -4,7 +4,10 @@ $HOME/.config/lemonbar/bar.sh &
 
 bspc config window_gap 0
 
-bspc monitor -a 1 2 3 4 5
+for mon in $(bspc query --names -M)
+do
+	bspc monitor $mon -d 1 2 3 4 5
+done
 
 xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" $(xdo id -n lemonbar)
 xsetroot -cursor_name left_ptr
