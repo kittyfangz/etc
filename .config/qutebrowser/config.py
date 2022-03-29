@@ -6,6 +6,17 @@ config.bind("E", "hint all tab")
 config.bind(",t", "spawn --userscript translate")
 config.bind(",m", "spawn umpv {url}")
 config.bind(",M", "hint links spawn umpv {hint-url}")
+config.bind(",d", 'spawn -m yt-dlp {url} -f "bv*+ba" --embed-metadata --embed-subs --embed-chapters --embed-thumbnail --merge-output-format mkv -P "~/rxv/vid" -o "%(channel)s/%(upload_date)s-%(title)s.%(ext)s"')
+config.bind(",D", 'spawn -m yt-dlp {url} -f "ba" -x --embed-metadata --embed-thumbnail --merge-output-format flac -P "~/rxv/vid" -o "%(channel)s/%(upload_date)s-%(title)s.%(ext)s"')
+
+#open last download in a program
+config.bind(",oe", "download-open alacritty --class editor -o window.dimensions.columns=80 -o window.dimensions.lines=24 -e nvim {}")
+config.bind(",of", "download-open flashplayer {}")
+config.bind(",oi", "download-open feh {}")
+config.bind(",om", "download-open mpv {}")
+
+config.bind("wa", "open https://web.archive.org/web/{url}")
+config.bind("wA", "open -t https://web.archive.org/web/{hint-url}")
 
 c.hints.chars = "aoeuidhtns"
 
@@ -36,5 +47,8 @@ c.content.blocking.adblock.lists = [
         "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt",
         "https://www.i-dont-care-about-cookies.eu/abp/",
     ]
+c.content.pdfjs = True
+c.content.autoplay = False
+c.content.javascript.can_access_clipboard = True
 
-c.editor.command = ["urxvt", "-name", "editor", "-geometry", "80x24+50+50", "-e", "nvim", "-f", "{}"]
+c.editor.command = ["alacritty", "--class", "editor", "-o", "window.dimensions.columns=80", "-o", "window.dimensions.lines=24", "-o", "window.position.x=50", "-o", "window.position.y=50", "-e", "nvim", "-f", "{}"]

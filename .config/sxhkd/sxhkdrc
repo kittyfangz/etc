@@ -8,12 +8,11 @@ super + {_,shift + }{1-9,0}
 	bspc {desktop -f, node -d} '^{1-9},10}'
 
 
-super + {n, m, s}
-	urxvt -e sh -c {newsboat, ncmpcpp, alsamixer}
-
+super + {n, c, m, s}
+	alacritty -e sh -c {newsboat, podboat, ncmpcpp, alsamixer}
 
 super + shift + Return
-	urxvtc
+	alacritty
 
 super + p
 	rofi -show run

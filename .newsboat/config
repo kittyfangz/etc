@@ -1,12 +1,13 @@
-browser		"qutebrowser"
-player		"mpv"
+browser		"qutebrowser %u"
+player		"mpv %u"
 
 auto-reload	yes
 delete-played-files yes
-download-path	"~/rxv/pod/%h/%n"
-podcast-auto-enqueue yes
+download-path "~/rxv/pod/%h/%n"
 
 bind-key 	G	end
 bind-key	g	home
 bind-key	j	down
 bind-key	k	up
+
+macro m set browser "setsid -f umpv %u" ; open-in-browser ; set browser "qutebrowser %u"

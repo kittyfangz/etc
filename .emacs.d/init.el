@@ -1,19 +1,35 @@
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+	(url-retrieve-synchronously
+	 "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+	 'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
-(setq evil-want-keybinding nil)
+(straight-use-package 'evil)
+(straight-use-package 'evil-collection)
+(straight-use-package 'org)
+(straight-use-package 'undo-tree)
 
-(let ((package '(evil evil-collection org))
-      (content-not-refreshed t))
-  (mapc
-   (lambda (name)
-     (unless (package-installed-p name)
-       (when content-not-refreshed
-	 (package-refresh-contents)
-	 (setq content-not-refreshed t))
-       (package-install name))
-     (require name))
-   package))
+(setq
+   backup-by-copying t      ; don't clobber symlinks
+   backup-directory-alist
+    '(("." . "~/.emacs.d/saves/"))    ; don't litter my fs tree
+   delete-old-versions t
+   kept-new-versions 6
+   kept-old-versions 2
+   version-control t)       ; use versioned backups
+
+(global-undo-tree-mode 1)
+
+(setq evil-want-integration t
+      evil-want-keybinding nil
+      evil-undo-system 'undo-tree)
 
 (evil-mode 1)
 
@@ -22,15 +38,4 @@
 	    (auto-fill-mode 1)
 	    (setq fill-column 80)))
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages '(evil-collection org evil)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(set-face-attribute 'default nil :family "Terminus" :height 150)
