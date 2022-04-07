@@ -3,3 +3,5 @@
 [user]
 	email = kittycatfangz@gmail.com
 	name = kitty fangz
+[core]
+	excludesfile = /home/fangz/.gitignore

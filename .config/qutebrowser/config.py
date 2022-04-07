@@ -7,18 +7,24 @@ config.bind(",t", "spawn --userscript translate")
 config.bind(",m", "spawn umpv {url}")
 config.bind(",M", "hint links spawn umpv {hint-url}")
 config.bind(",d", 'spawn -m yt-dlp {url} -f "bv*+ba" --embed-metadata --embed-subs --embed-chapters --embed-thumbnail --merge-output-format mkv -P "~/rxv/vid" -o "%(channel)s/%(upload_date)s-%(title)s.%(ext)s"')
-config.bind(",D", 'spawn -m yt-dlp {url} -f "ba" -x --embed-metadata --embed-thumbnail --merge-output-format flac -P "~/rxv/vid" -o "%(channel)s/%(upload_date)s-%(title)s.%(ext)s"')
+config.bind(",D", 'spawn -m yt-dlp {url} -f "ba" -x --embed-metadata --embed-thumbnail --merge-output-format aac -P "~/rxv/vid" -o "%(channel)s/%(upload_date)s-%(title)s.%(ext)s"')
 
-#open last download in a program
+#collect file and put in the Correct location
+config.bind(",ci", "hint images run download --dest '~/rxv/img/' {hint-url}")
+config.bind(",cf", "hint links run download --dest '~/rxv/fla/' {hint-url}")
+config.bind(",ct", "hint links run download --dest '~/rxv/txt/' {hint-url}")
+
+#open in a program
 config.bind(",oe", "download-open alacritty --class editor -o window.dimensions.columns=80 -o window.dimensions.lines=24 -e nvim {}")
 config.bind(",of", "download-open flashplayer {}")
 config.bind(",oi", "download-open feh {}")
 config.bind(",om", "download-open mpv {}")
+config.bind(",or", "hint links spawn alacritty --class editor -o window.dimensions.columns=80 -o window.dimensions.lines=24 -e nvim {hint-url}")
 
 config.bind("wa", "open https://web.archive.org/web/{url}")
 config.bind("wA", "open -t https://web.archive.org/web/{hint-url}")
 
-c.hints.chars = "aoeuidhtns"
+c.hints.chars = "aoeuhtns"
 
 c.downloads.location.directory = "~/rxv"
 
@@ -45,7 +51,7 @@ c.content.blocking.adblock.lists = [
         "https://raw.githubusercontent.com/Ewpratten/youtube_ad_blocklist/master/blocklist.txt",
         "https://secure.fanboy.co.nz/fanboy-annoyance.txt",
         "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt",
-        "https://www.i-dont-care-about-cookies.eu/abp/",
+        "https://www.i-dont-care-about-cookies.eu/abp/"
     ]
 c.content.pdfjs = True
 c.content.autoplay = False

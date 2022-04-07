@@ -1,0 +1,14 @@
+OPTIONS=!autopickup
+OPTIONS=boulder:0
+OPTIONS=statuslines:3
+OPTIONS=time
+OPTIONS=showexp
+OPTIONS=showscore
+OPTIONS=force_invmenu
+
+OPTIONS=windowtype:curses
+OPTIONS=popup_dialog
+
+OPTIONS=name:player
+OPTIONS=catname:Avery
+OPTIONS=dogname:Cookie
