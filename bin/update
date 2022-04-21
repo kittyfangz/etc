@@ -1,0 +1,3 @@
+#!/bin/sh
+paru -Syu --devel
+nvim '+:PlugUpdate' '+:qa'

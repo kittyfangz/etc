@@ -34,6 +34,7 @@ fi
 dunst &
 xss-lock xlock &
 $HOME/.fehbg &
+picom &
 
 session=${session:-bspwm}
 

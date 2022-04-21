@@ -1,3 +1,44 @@
+" vim: fdm=marker
+let mapleader = ","
+
+" statusline {{{
+function! Stl_Current_Wordcount()
+	if wordcount()->has_key('cursor_words')
+		return wordcount().cursor_words
+	else " probably in visual mode
+		return wordcount().visual_words
+	endif
+endfunction
+
+set statusline+=[%n]
+set statusline+=%.20f\  "file path
+set statusline+=%m "modified flag
+set statusline+=%r "readonly flag
+set statusline+=%y "filetype
+
+set statusline+=%= "right side
+set statusline+=%{Stl_Current_Wordcount()}/ "cursor wordcount
+set statusline+=%{wordcount().words}w\ "wordcount
+set statusline+=%v\  "visual column number
+set statusline+=%l "current line
+set statusline+=/
+set statusline+=%L "total lines
+" }}}
+
+" undo {{{
+set undofile
+set undodir=$HOME/.viundo
+"}}}
+
+" autocommands {{{
+augroup filetype_txt
+	autocmd!
+	autocmd FileType text setlocal textwidth=80
+augroup END
+" }}}
+
+" plugins {{{
+" plugin installation {{{
 call plug#begin()
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -13,41 +54,30 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-orgmode/orgmode'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'baskerville/vim-sxhkdrc'
+Plug 'karolbelina/uxntal.vim'
 call plug#end()
+" }}}
 
-let mapleader = ","
-
-set undofile
-set undodir=$HOME/.viundo
-
-set spelllang=en_au
-set spellfile=$HOME/.local/share/nvim/spell/en.utf-8.add
-
-augroup filetype_md
-	autocmd FileType markdown setlocal textwidth=80
-	" autocmd FileType markdown setlocal spell
-augroup END
-
-augroup filetype_txt
-	autocmd FileType text setlocal textwidth=80
-	" autocmd FileType text setlocal spell
-augroup END
-
-"fzf
+" fzf {{{
 imap <c-x><c-f> <plug>(fzf-complete-path)
+" }}}
 
-"mundo
+" mundo {{{
 nnoremap <Leader>u :MundoToggle<CR>
+" }}}
 
-"easymotion
+" easymotion {{{
 let g:EasyMotion_keys = 'aoeuhtns'
+" }}}
 
-"ultisnips
+" ultisnips {{{
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 let g:UltiSnipsSnippetDirectories = ["UltiSnips", "mysnips"]
+" }}}
 
+" org {{{
 lua << EOF
 require('orgmode').setup_ts_grammar()
 require'nvim-treesitter.configs'.setup {
@@ -64,3 +94,5 @@ org_agenda_files = {'~/org/*'},
 org_default_notes_file = '~/org/refile.org',
 })
 EOF
+" }}}
+" }}}

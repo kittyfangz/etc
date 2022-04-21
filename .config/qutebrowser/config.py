@@ -2,6 +2,7 @@ config.load_autoconfig(False)
 
 config.bind("e", "hint")
 config.bind("E", "hint all tab")
+config.bind("!", "set-cmd-text :open !")
 
 config.bind(",t", "spawn --userscript translate")
 config.bind(",m", "spawn umpv {url}")
@@ -56,5 +57,6 @@ c.content.blocking.adblock.lists = [
 c.content.pdfjs = True
 c.content.autoplay = False
 c.content.javascript.can_access_clipboard = True
+c.auto_save.session = True
 
 c.editor.command = ["alacritty", "--class", "editor", "-o", "window.dimensions.columns=80", "-o", "window.dimensions.lines=24", "-o", "window.position.x=50", "-o", "window.position.y=50", "-e", "nvim", "-f", "{}"]

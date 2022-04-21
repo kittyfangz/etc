@@ -1,2 +1,6 @@
 #!/bin/sh
-feh --no-fehbg --bg-scale $HOME/wall/*
+while true
+do
+	feh --no-fehbg --bg-scale --randomize $HOME/wall/*
+	sleep 1h
+done
