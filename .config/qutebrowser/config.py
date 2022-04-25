@@ -2,13 +2,13 @@ config.load_autoconfig(False)
 
 config.bind("e", "hint")
 config.bind("E", "hint all tab")
-config.bind("!", "set-cmd-text :open !")
+config.bind("!", "set-cmd-text :open -t !")
 
 config.bind(",t", "spawn --userscript translate")
 config.bind(",m", "spawn umpv {url}")
 config.bind(",M", "hint links spawn umpv {hint-url}")
 config.bind(",d", 'spawn -m yt-dlp {url} -f "bv*+ba" --embed-metadata --embed-subs --embed-chapters --embed-thumbnail --merge-output-format mkv -P "~/rxv/vid" -o "%(channel)s/%(upload_date)s-%(title)s.%(ext)s"')
-config.bind(",D", 'spawn -m yt-dlp {url} -f "ba" -x --embed-metadata --embed-thumbnail --merge-output-format aac -P "~/rxv/vid" -o "%(channel)s/%(upload_date)s-%(title)s.%(ext)s"')
+config.bind(",D", 'spawn -m yt-dlp {url} -f "ba" -x --embed-metadata --embed-thumbnail --audio-format aac -P "~/rxv/vid" -o "%(channel)s/%(upload_date)s-%(title)s.%(ext)s"')
 
 #collect file and put in the Correct location
 config.bind(",ci", "hint images run download --dest '~/rxv/img/' {hint-url}")

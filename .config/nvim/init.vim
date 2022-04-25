@@ -1,5 +1,10 @@
 " vim: fdm=marker
+" keybindings {{{
 let mapleader = ","
+let maplocalleader = "\<space>"
+
+nnoremap <Leader>g gqip
+" }}}
 
 " statusline {{{
 function! Stl_Current_Wordcount()
@@ -10,7 +15,7 @@ function! Stl_Current_Wordcount()
 	endif
 endfunction
 
-set statusline+=[%n]
+set statusline=[%n]
 set statusline+=%.20f\  "file path
 set statusline+=%m "modified flag
 set statusline+=%r "readonly flag
@@ -30,11 +35,15 @@ set undofile
 set undodir=$HOME/.viundo
 "}}}
 
-" autocommands {{{
+" file types {{{
+" txt {{{
+" center first 2 lines, then left
 augroup filetype_txt
 	autocmd!
 	autocmd FileType text setlocal textwidth=80
+	autocmd FileType text setlocal formatoptions+=a
 augroup END
+" }}}
 " }}}
 
 " plugins {{{
