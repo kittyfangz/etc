@@ -1,13 +1,3 @@
-super + shift + c
-	bspc node -c
-
-super + {_,shift + }{h,j,k,l}
-	bspc node {-f,-s} {west,south,north,east}
-
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f, node -d} '^{1-9},10}'
-
-
 super + {n, c, m}
 	alacritty --class editor -o window.dimensions.columns=80 \
 	-o window.dimensions.lines=24 -o window.position.x=50 \
@@ -22,10 +12,6 @@ super + p
 
 super + s
 	clerk -t
-
-# this shit's so complicated i'm putting it in a script
-super + u ; h
-	$HOME/bin/toggle_mpv_vis.sh
 
 XF86AudioRaiseVolume
 	amixer set Master 5%+

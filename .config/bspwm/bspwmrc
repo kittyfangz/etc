@@ -1,5 +1,6 @@
 #!/bin/sh
-pgrep -x sxhkd > /dev/null || SXHKD_SHELL=/usr/bin/dash sxhkd -m -1 &
+pgrep -x sxhkd > /dev/null || \
+	SXHKD_SHELL=/usr/bin/dash sxhkd -m -1 ~/.config/bspwm/sxhkdrc &
 $HOME/.config/lemonbar/bar.sh &
 
 bspc config window_gap 0

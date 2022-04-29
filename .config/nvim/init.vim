@@ -36,12 +36,28 @@ set undodir=$HOME/.viundo
 "}}}
 
 " file types {{{
+set textwidth=80
+
 " txt {{{
 " center first 2 lines, then left
 augroup filetype_txt
 	autocmd!
-	autocmd FileType text setlocal textwidth=80
 	autocmd FileType text setlocal formatoptions+=a
+augroup END
+" }}}
+
+" c {{{
+augroup filetype_c
+	autocmd!
+	autocmd FileType c setlocal formatoptions+=t
+	autocmd BufRead,BufNewFile *.h set filetype=c
+augroup END
+" }}}
+
+" html {{{
+augroup filetype_html
+	autocmd!
+	autocmd FileType text setlocal textwidth=0
 augroup END
 " }}}
 " }}}

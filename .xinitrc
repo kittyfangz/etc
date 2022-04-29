@@ -36,7 +36,7 @@ xss-lock xlock &
 $HOME/.fehbg &
 picom &
 
-session=${session:-bspwm}
+session=${1:-bspwm}
 
 case $session in
 	bspwm)		exec bspwm;;
