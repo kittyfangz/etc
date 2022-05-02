@@ -4,6 +4,8 @@ let mapleader = ","
 let maplocalleader = "\<space>"
 
 nnoremap <Leader>g gqip
+" i don't know how to do this better
+vnoremap zf <Esc>'>mm'<O<Esc>m<'mo<Esc>m>gvzf
 " }}}
 
 " statusline {{{

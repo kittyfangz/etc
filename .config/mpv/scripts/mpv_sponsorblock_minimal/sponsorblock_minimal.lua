@@ -8,7 +8,7 @@ local options = {
 
 	-- Categories to fetch and skip
 	-- categories = '"sponsor","intro","outro","interaction","selfpromo"'
-	categories = '"sponsor","intro","outro"'
+	categories = '"sponsor"'
 }
 
 function getranges()
