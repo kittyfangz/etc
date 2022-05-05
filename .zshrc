@@ -20,8 +20,6 @@ setopt correct #[nyae]
 setopt dvorak #dvorak spelling suggestions
 setopt print_exit_value #if exit != 0, print it
 
-setopt nonotify #print job status before prompt
-
 HISTFILE=~/.histfile
 HISTSIZE=1000000
 SAVEHIST=1000000
