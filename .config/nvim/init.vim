@@ -41,10 +41,13 @@ set undodir=$HOME/.viundo
 set textwidth=80
 
 " txt {{{
-" center first 2 lines, then left
 augroup filetype_txt
 	autocmd!
 	autocmd FileType text setlocal formatoptions+=a
+	autocmd FileType text setlocal spell
+	autocmd FileType text setlocal spellcapcheck= " disable capitalisation checking
+	autocmd FileType text nnoremap <buffer> <localleader>p [s
+	autocmd FileType text nnoremap <buffer> <localleader>n ]s
 augroup END
 " }}}
 

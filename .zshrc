@@ -90,14 +90,21 @@ alias ta="tmux new -As"
 alias gs="git status"
 alias gc="git commit"
 alias gd="git diff"
+alias gp="git push"
 
 alias ys="yadm status"
 alias yc="yadm commit"
 alias yd="yadm diff"
+alias yp="yadm push"
+
+# sssshh!!
+alias dla="yt-dlp -f \"ba\" -x --audio-format wav"
+alias dlv="yt-dlp -f \"bv*+ba\" -x --audio-format wav"
 
 # i do not know how i missed out on zsh suffix aliases for so long
 alias -s git="git clone"
 alias -s {png,jpg,gif}="feh"
+alias -s {mp4,mkv,mp3,flac,wav}="mpv"
 alias -s pdf="zathura"
 alias -s c="nvim"
 # }}}
