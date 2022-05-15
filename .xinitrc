@@ -40,6 +40,7 @@ session=${1:-bspwm}
 
 case $session in
 	bspwm)		exec bspwm;;
+	stumpwm)	exec stumpwm;;
 	cwm)		exec cwm;;
 	worm)		exec worm;;
 	*)		exec $1;;

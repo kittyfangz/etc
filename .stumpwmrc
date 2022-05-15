@@ -1,0 +1,50 @@
+;; vim: ft=lisp
+(in-package :stumpwm)
+
+(set-font "-xos4-terminus-medium-r-normal--20-200-72-72-c-100-iso10646-1")
+(run-shell-command "xsetroot -cursor_name left_ptr")
+
+(setf *mouse-focus-policy* :click)
+
+(define-key *root-map* (kbd "c") "exec alacritty")
+(define-key *root-map* (kbd "C-c") "exec alacritty")
+(define-key *root-map* (kbd "C-b") "exec qutebrowser")
+
+(define-key *top-map* (kbd "s-h") "move-focus left")
+(define-key *top-map* (kbd "s-j") "move-focus down")
+(define-key *top-map* (kbd "s-k") "move-focus up")
+(define-key *top-map* (kbd "s-l") "move-focus right")
+
+(define-key *top-map* (kbd "s-H") "move-window left")
+(define-key *top-map* (kbd "s-J") "move-window down")
+(define-key *top-map* (kbd "s-K") "move-window up")
+(define-key *top-map* (kbd "s-L") "move-window right")
+
+(define-key *top-map* (kbd "s-p") "prev")
+(define-key *top-map* (kbd "s-n") "next")
+
+(define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec amixer set Master 5%+")
+(define-key *top-map* (kbd "XF86AudioLowerVolume") "exec amixer set Master 5%-")
+(define-key *top-map* (kbd "XF86AudioMute") "exec amixer set Master toggle")
+(define-key *top-map* (kbd "XF86AudioPlay") "exec mpc toggle")
+(define-key *top-map* (kbd "XF86AudioStop") "exec mpc stop")
+(define-key *top-map* (kbd "XF86AudioPrev") "exec mpc prev")
+(define-key *top-map* (kbd "XF86AudioNext") "exec mpc next")
+
+(define-key *top-map* (kbd "s-1") "gselect 1")
+(define-key *top-map* (kbd "s-2") "gselect 2")
+(define-key *top-map* (kbd "s-3") "gselect 3")
+
+(defun kf/float-window-in-corner ()
+  (float-this)
+  (toggle-always-show)
+  (toggle-always-on-top))
+
+(define-key *root-map* (kbd "C-f") "eval kf/float-window-in-corner")
+
+(setf *window-format* "%m%n%s%c"
+      *screen-mode-line-format* (list "[^B%n^b] %W^>%d")
+      *time-modeline-string* "%F %H:%M:%S"
+      *mode-line-timeout* 1)
+
+(enable-mode-line (current-screen) (current-head) t)

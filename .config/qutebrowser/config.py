@@ -7,20 +7,21 @@ config.bind("!", "set-cmd-text :open -t !")
 config.bind(",t", "spawn --userscript translate")
 config.bind(",m", "spawn umpv {url}")
 config.bind(",M", "hint links spawn umpv {hint-url}")
-config.bind(",d", 'spawn -m yt-dlp {url} -f "bv*+ba" --embed-metadata --embed-subs --embed-chapters --embed-thumbnail --merge-output-format mkv -P "~/rxv/vid" -o "%(channel)s/%(upload_date)s-%(title)s.%(ext)s"')
-config.bind(",D", 'spawn -m yt-dlp {url} -f "ba" -x --embed-metadata --embed-thumbnail --audio-format aac -P "~/rxv/vid" -o "%(channel)s/%(upload_date)s-%(title)s.%(ext)s"')
+config.bind(",cs", "config-cycle -t -p completion.open_categories \"['searchengines', 'quickmarks', 'bookmarks', 'history', 'filesystem']\" []")
 
 #collect file and put in the Correct location
-config.bind(",ci", "hint images run download --dest '~/rxv/img/' {hint-url}")
-config.bind(",cf", "hint links run download --dest '~/rxv/fla/' {hint-url}")
-config.bind(",ct", "hint links run download --dest '~/rxv/txt/' {hint-url}")
+config.bind(",di", "hint images run download --dest '~/img/' {hint-url}")
+config.bind(",df", "hint links run download --dest '~/rxv/fla/' {hint-url}")
+config.bind(",dt", "hint links run download --dest '~/txt/' {hint-url}")
+config.bind(",dv", 'spawn -m yt-dlp {url} -f "bv*+ba" --embed-metadata --embed-subs --embed-chapters --embed-thumbnail --merge-output-format mkv -P "~/vid" -o "%(channel)s/%(upload_date)s-%(title)s.%(ext)s"')
+config.bind(",da", 'spawn -m yt-dlp {url} -f "ba" -x --embed-metadata --embed-thumbnail --audio-format aac -P "~/vid" -o "%(channel)s/%(upload_date)s-%(title)s.%(ext)s"')
 
 #open in a program
-config.bind(",oe", "download-open alacritty --class editor -o window.dimensions.columns=80 -o window.dimensions.lines=24 -e nvim {}")
+config.bind(",oe", "download-open alac.sh nvim {}")
 config.bind(",of", "download-open flashplayer {}")
 config.bind(",oi", "download-open feh {}")
 config.bind(",om", "download-open mpv {}")
-config.bind(",or", "hint links spawn alacritty --class editor -o window.dimensions.columns=80 -o window.dimensions.lines=24 -e nvim {hint-url}")
+config.bind(",or", "hint links spawn alac.sh nvim {hint-url}")
 
 config.bind("wa", "open https://web.archive.org/web/{url}")
 config.bind("wA", "open -t https://web.archive.org/web/{hint-url}")
@@ -59,4 +60,4 @@ c.content.autoplay = False
 c.content.javascript.can_access_clipboard = True
 c.auto_save.session = True
 
-c.editor.command = ["alacritty", "--class", "editor", "-o", "window.dimensions.columns=80", "-o", "window.dimensions.lines=24", "-o", "window.position.x=50", "-o", "window.position.y=50", "-e", "nvim", "-f", "{}"]
+c.editor.command = ["alac.sh", "nvim", "-f", "{}"]

@@ -62,7 +62,7 @@ augroup END
 " html {{{
 augroup filetype_html
 	autocmd!
-	autocmd FileType text setlocal textwidth=0
+	autocmd FileType html setlocal textwidth=0
 augroup END
 " }}}
 " }}}

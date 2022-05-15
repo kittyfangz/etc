@@ -4,9 +4,6 @@
 [submodule ".config/mpv/scripts/mpv-scripts"]
 	path = .config/mpv/scripts/mpv-scripts
 	url = https://github.com/Eisa01/mpv-scripts
-[submodule ".config/mpv/scripts/mpv_sponsorblock_minimal"]
-	path = .config/mpv/scripts/mpv_sponsorblock_minimal
-	url = https://codeberg.org/jouni/mpv_sponsorblock_minimal
 [submodule ".config/mpv/scripts/mpv-playlistmanager"]
 	path = .config/mpv/scripts/mpv-playlistmanager
 	url = https://github.com/jonniek/mpv-playlistmanager

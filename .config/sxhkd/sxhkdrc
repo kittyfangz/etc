@@ -1,3 +1,5 @@
+# vim: fdm=marker
+# launching software{{{
 super + {n, m}
 	alacritty --class editor -o window.dimensions.columns=80 \
 	-o window.dimensions.lines=24 -o window.position.x=50 \
@@ -10,9 +12,38 @@ super + shift + Return
 super + p
 	rofi -show run
 
+super + w
+	rofi -show window
+
 super + s
 	clerk -t
+#}}}
 
+# screen recording{{{
+super + r ; s
+	record.sh
+
+# note that these will fuck over other ffmpeg instances too
+super + r ; p
+	pkill -STOP ffmpeg
+
+super + r ; c
+	pkill -CONT ffmpeg
+
+super + r ; x
+	pkill -TERM ffmpeg
+#}}}
+
+# screenshotting {{{
+# copy selected area to clipboard
+super + i ; c
+	maim -s | xclip -selection clipboard -t image/png
+
+super + i ; i
+	maim -s "~/img/$(date +%s)".png
+#}}}
+
+# xf86 stuff {{{
 XF86AudioRaiseVolume
 	amixer set Master 5%+
 
@@ -34,8 +65,9 @@ XF86AudioPrev
 XF86AudioNext
 	mpc next
 
-XF86MonBrightnessUp
+super + F6
 	brightnessctl set +5%
 
-XF86MonBrightnessDown
+super + F5
 	brightnessctl set 5%-
+#}}}
