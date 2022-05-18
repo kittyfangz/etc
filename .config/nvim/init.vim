@@ -4,6 +4,8 @@ let mapleader = ","
 let maplocalleader = "\<space>"
 
 nnoremap <Leader>g gqip
+nnoremap <Leader>b :ls<CR>:b
+nnoremap gb :b#<CR>
 " i don't know how to do this better
 vnoremap zf <Esc>'>mm'<O<Esc>m<'mo<Esc>m>gvzf
 " }}}
@@ -44,8 +46,8 @@ set textwidth=80
 augroup filetype_txt
 	autocmd!
 	autocmd FileType text setlocal formatoptions+=a
-	autocmd FileType text setlocal spell
-	autocmd FileType text setlocal spellcapcheck= " disable capitalisation checking
+	" autocmd FileType text setlocal spell
+	" autocmd FileType text setlocal spellcapcheck= " disable capitalisation checking
 	autocmd FileType text nnoremap <buffer> <localleader>p [s
 	autocmd FileType text nnoremap <buffer> <localleader>n ]s
 augroup END
@@ -120,8 +122,8 @@ ensure_installed = {'org'},
 }
 
 require('orgmode').setup({
-org_agenda_files = {'~/org/*'},
-org_default_notes_file = '~/org/refile.org',
+	org_agenda_files = {'~/org/*'},
+	org_default_notes_file = '~/org/refile.org',
 })
 EOF
 " }}}

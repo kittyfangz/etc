@@ -7,7 +7,7 @@ config.bind("!", "set-cmd-text :open -t !")
 config.bind(",t", "spawn --userscript translate")
 config.bind(",m", "spawn umpv {url}")
 config.bind(",M", "hint links spawn umpv {hint-url}")
-config.bind(",cs", "config-cycle -t -p completion.open_categories \"['searchengines', 'quickmarks', 'bookmarks', 'history', 'filesystem']\" []")
+config.bind(",cs", "config-cycle -t -p completion.open_categories [] \"['searchengines', 'quickmarks', 'bookmarks', 'history', 'filesystem']\"")
 
 #collect file and put in the Correct location
 config.bind(",di", "hint images run download --dest '~/img/' {hint-url}")
@@ -24,7 +24,7 @@ config.bind(",om", "download-open mpv {}")
 config.bind(",or", "hint links spawn alac.sh nvim {hint-url}")
 
 config.bind("wa", "open https://web.archive.org/web/{url}")
-config.bind("wA", "open -t https://web.archive.org/web/{hint-url}")
+config.bind("wA", "hint links run open -t https://web.archive.org/web/{hint-url}")
 
 c.hints.chars = "aoeuhtns"
 

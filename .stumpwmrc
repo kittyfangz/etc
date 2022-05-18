@@ -35,12 +35,12 @@
 (define-key *top-map* (kbd "s-2") "gselect 2")
 (define-key *top-map* (kbd "s-3") "gselect 3")
 
-(defun kf/float-window-in-corner ()
-  (float-this)
-  (toggle-always-show)
-  (toggle-always-on-top))
+(defcommand float-on-top-everywhere () ()
+	    (float-this)
+	    (toggle-always-show)
+	    (toggle-always-on-top))
 
-(define-key *root-map* (kbd "C-f") "eval kf/float-window-in-corner")
+(define-key *root-map* (kbd "C-f") "float-on-top-everywhere")
 
 (setf *window-format* "%m%n%s%c"
       *screen-mode-line-format* (list "[^B%n^b] %W^>%d")
