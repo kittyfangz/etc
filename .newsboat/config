@@ -1,5 +1,5 @@
 browser		"qutebrowser %u"
-player		"umpv %u"
+player		"setsid -f umpv %u"
 
 auto-reload	yes
 delete-played-files yes

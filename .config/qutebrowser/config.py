@@ -23,6 +23,8 @@ config.bind(",oi", "download-open feh {}")
 config.bind(",om", "download-open mpv {}")
 config.bind(",or", "hint links spawn alac.sh nvim {hint-url}")
 
+config.bind(",si", "spawn --userscript invidious")
+
 config.bind("wa", "open https://web.archive.org/web/{url}")
 config.bind("wA", "hint links run open -t https://web.archive.org/web/{hint-url}")
 

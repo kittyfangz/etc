@@ -39,54 +39,29 @@ set undofile
 set undodir=$HOME/.viundo
 "}}}
 
-" file types {{{
-set textwidth=80
-
-" txt {{{
-augroup filetype_txt
-	autocmd!
-	autocmd FileType text setlocal formatoptions+=a
-	" autocmd FileType text setlocal spell
-	" autocmd FileType text setlocal spellcapcheck= " disable capitalisation checking
-	autocmd FileType text nnoremap <buffer> <localleader>p [s
-	autocmd FileType text nnoremap <buffer> <localleader>n ]s
-augroup END
-" }}}
-
-" c {{{
-augroup filetype_c
-	autocmd!
-	autocmd FileType c setlocal formatoptions+=t
-	autocmd BufRead,BufNewFile *.h set filetype=c
-augroup END
-" }}}
-
-" html {{{
-augroup filetype_html
-	autocmd!
-	autocmd FileType html setlocal textwidth=0
-augroup END
-" }}}
-" }}}
+set textwidth=80 virtualedit=all
 
 " plugins {{{
 " plugin installation {{{
 call plug#begin()
+Plug 'SirVer/ultisnips'
+Plug 'baskerville/vim-sxhkdrc'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'easymotion/vim-easymotion'
+Plug 'junegunn/Goyo.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'simnalamburt/vim-mundo'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-speeddating'
-Plug 'easymotion/vim-easymotion'
-Plug 'SirVer/ultisnips'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-orgmode/orgmode'
-Plug 'dhruvasagar/vim-table-mode'
-Plug 'baskerville/vim-sxhkdrc'
 Plug 'karolbelina/uxntal.vim'
+Plug 'lervag/vimtex'
+Plug 'nvim-orgmode/orgmode'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'simnalamburt/vim-mundo'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'vimwiki/vimwiki'
 call plug#end()
 " }}}
 
@@ -106,7 +81,7 @@ let g:EasyMotion_keys = 'aoeuhtns'
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-let g:UltiSnipsSnippetDirectories = ["UltiSnips", "mysnips"]
+let g:UltiSnipsSnippetDirectories = [$HOME . '/.config/nvim/snip']
 " }}}
 
 " org {{{
@@ -126,5 +101,9 @@ require('orgmode').setup({
 	org_default_notes_file = '~/org/refile.org',
 })
 EOF
+" }}}
+
+" tex {{{
+let g:vimtex_view_method = 'zathura'
 " }}}
 " }}}

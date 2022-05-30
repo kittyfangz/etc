@@ -2,3 +2,4 @@
 paru -Syu --devel
 nvim '+:PlugUpdate' '+:qa'
 rustup update
+yadm submodule update
