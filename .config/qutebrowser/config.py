@@ -1,3 +1,5 @@
+import dracula.draw
+
 config.load_autoconfig(False)
 
 config.bind("e", "hint")
@@ -5,8 +7,8 @@ config.bind("E", "hint all tab")
 config.bind("!", "set-cmd-text :open -t !")
 
 config.bind(",t", "spawn --userscript translate")
-config.bind(",m", "spawn umpv {url}")
-config.bind(",M", "hint links spawn umpv {hint-url}")
+config.bind(",m", "spawn mpvc -a '{url}'")
+config.bind(",M", "hint links spawn mpvc -a '{hint-url}'")
 config.bind(",cs", "config-cycle -t -p completion.open_categories [] \"['searchengines', 'quickmarks', 'bookmarks', 'history', 'filesystem']\"")
 
 #collect file and put in the Correct location
@@ -20,7 +22,7 @@ config.bind(",da", 'spawn -m yt-dlp {url} -f "ba" -x --embed-metadata --embed-th
 config.bind(",oe", "download-open alac.sh nvim {}")
 config.bind(",of", "download-open flashplayer {}")
 config.bind(",oi", "download-open feh {}")
-config.bind(",om", "download-open mpv {}")
+config.bind(",om", "download-open mpvc -a '{}'")
 config.bind(",or", "hint links spawn alac.sh nvim {hint-url}")
 
 config.bind(",si", "spawn --userscript invidious")
@@ -63,3 +65,10 @@ c.content.javascript.can_access_clipboard = True
 c.auto_save.session = True
 
 c.editor.command = ["alac.sh", "nvim", "-f", "{}"]
+
+dracula.draw.blood(c, {
+    'spacing': {
+        'vertical': 6,
+        'horizontal': 8
+        }
+    })

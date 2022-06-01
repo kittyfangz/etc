@@ -7,3 +7,12 @@
 [submodule ".config/mpv/scripts/mpv-playlistmanager"]
 	path = .config/mpv/scripts/mpv-playlistmanager
 	url = https://github.com/jonniek/mpv-playlistmanager
+[submodule "bin/mpvc"]
+	path = bin/mpvc.d
+	url = https://github.com/gmt4/mpvc
+[submodule ".config/alacritty/dracula"]
+	path = .config/alacritty/dracula
+	url = https://github.com/dracula/alacritty
+[submodule ".config/qutebrowser/dracula"]
+	path = .config/qutebrowser/dracula
+	url = https://github.com/dracula/qutebrowser

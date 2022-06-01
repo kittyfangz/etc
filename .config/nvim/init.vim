@@ -39,7 +39,7 @@ set undofile
 set undodir=$HOME/.viundo
 "}}}
 
-set textwidth=80 virtualedit=all
+set textwidth=80
 
 " plugins {{{
 " plugin installation {{{
