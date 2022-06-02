@@ -1,2 +1,2 @@
 #!/bin/sh
-sed -n '/.+/ H;  /^$/ { x; s/\n/ /g; s/$/\n/ ; p}' "$@"
+perl -ane 'chop;print "\n\n" if(/^\s*$/); map{print "$_ ";}@F;' "$@"

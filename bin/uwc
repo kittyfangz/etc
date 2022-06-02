@@ -1,0 +1,5 @@
+#!/bin/sh
+tr ' ' '\n' < "$1" \
+	| sort \
+	| uniq -c \
+	| sort -n

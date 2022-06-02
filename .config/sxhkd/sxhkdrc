@@ -54,15 +54,27 @@ XF86AudioMute
 	amixer set Master toggle
 
 XF86AudioPlay
-	mpc toggle
+	kmrt
 
 XF86AudioStop
-	mpc stop
+	kmrs
 
 XF86AudioPrev
-	mpc prev
+	kmrp
 
 XF86AudioNext
+	kmrn
+
+super + XF86AudioPlay
+	mpc toggle
+
+super + XF86AudioStop
+	mpc stop
+
+super + XF86AudioPrev
+	mpc prev
+
+super + XF86AudioNext
 	mpc next
 
 super + F6
