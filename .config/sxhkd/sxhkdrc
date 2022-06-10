@@ -17,6 +17,9 @@ super + w
 
 super + s
 	clerk -t
+
+super + shift + s
+	srofi
 #}}}
 
 # screen recording{{{

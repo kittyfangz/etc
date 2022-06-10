@@ -1,0 +1,9 @@
+#!/bin/sh
+elvi=$(sr -elvi | sed '/^[[:space:]]/d' | tr -s '[:blank:]' ' ' | \
+	rofi -dmenu -p "Select elvi" | cut -d' ' -f1)
+[ -z "$elvi" ] && exit
+query=$(rofi -theme-str 'listview { enabled: false; }' \
+	-dmenu -p "Enter query")
+[ -z "$query" ] && exit
+
+sr "$elvi" $query

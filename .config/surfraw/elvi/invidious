@@ -1,0 +1,21 @@
+#!/bin/sh
+# elvis: invidious -- search youtube through invidious
+. surfraw || exit 1
+
+w3_usage_hook () {
+	cat <<EOF
+Usage: $w3_argv0 [options] [search terms]...
+Description:
+  Search youtube through an invidious instance
+EOF
+	w3_global_usage
+}
+
+w3_config
+w3_parse_args "$@"
+if [ -z "$w3_args" ]; then
+	w3_browse_url "https://invidious.snopyta.org/"
+else
+	escaped_args=$(w3_url_of_arg $w3_args)
+	w3_browse_url "https://invidious.snopyta.org/search?q=${escaped_args}"
+fi

@@ -39,7 +39,7 @@ set undofile
 set undodir=$HOME/.viundo
 "}}}
 
-set textwidth=80
+set textwidth=80 exrc secure
 
 " plugins {{{
 " plugin installation {{{
@@ -48,9 +48,10 @@ Plug 'SirVer/ultisnips'
 Plug 'baskerville/vim-sxhkdrc'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'easymotion/vim-easymotion'
-Plug 'junegunn/Goyo.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 Plug 'karolbelina/uxntal.vim'
 Plug 'lervag/vimtex'
 Plug 'nvim-orgmode/orgmode'
@@ -59,8 +60,11 @@ Plug 'simnalamburt/vim-mundo'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vimwiki/vimwiki'
 call plug#end()
 " }}}
@@ -70,7 +74,7 @@ imap <c-x><c-f> <plug>(fzf-complete-path)
 " }}}
 
 " mundo {{{
-nnoremap <Leader>u :MundoToggle<CR>
+nnoremap U :MundoToggle<CR>
 " }}}
 
 " easymotion {{{
@@ -105,5 +109,23 @@ EOF
 
 " tex {{{
 let g:vimtex_view_method = 'zathura'
+" }}}
+
+" vimwiki {{{
+let g:vimwiki_global_ext=0
+" }}}
+
+" pandoc {{{
+let g:pandoc#syntax#conceal#use = 0
+" }}}
+
+" goyo/limelight {{{
+let g:limelight_conceal_ctermfg = 'Gray'
+
+augroup goyoc
+	autocmd!
+	autocmd User GoyoEnter Limelight
+	autocmd User GoyoLeave Limelight!
+augroup END
 " }}}
 " }}}

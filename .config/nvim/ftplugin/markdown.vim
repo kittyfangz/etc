@@ -1,5 +1,5 @@
 setlocal formatoptions+=a
-setlocal makeprg=pandoc\ -t\ pdf
+setlocal makeprg=pandoc\ -t\ pdf\ %
 
 setlocal spell spellcapcheck=
 nnoremap <buffer> <localleader>p [s
