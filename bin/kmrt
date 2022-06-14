@@ -1,2 +1,0 @@
-#!/bin/sh
-echo '{ "command": ["cycle", "pause"] }' | socat - ~/.umpv_socket

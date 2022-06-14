@@ -20,6 +20,12 @@ super + s
 
 super + shift + s
 	srofi
+
+super + u ; f
+	kmr cycle fullscreen
+
+super + b ; {b,o,q}
+	{qbbook,rofi -show qbcmd -modi "qbcmd:qbcmd",qbquick}
 #}}}
 
 # screen recording{{{
@@ -57,16 +63,16 @@ XF86AudioMute
 	amixer set Master toggle
 
 XF86AudioPlay
-	kmrt
+	kmr cycle pause
 
 XF86AudioStop
-	kmrs
+	kmr stop keep-playlist
 
 XF86AudioPrev
-	kmrp
+	kmr playlist-prev
 
 XF86AudioNext
-	kmrn
+	kmr playlist-next
 
 super + XF86AudioPlay
 	mpc toggle

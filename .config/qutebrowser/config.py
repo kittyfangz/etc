@@ -11,19 +11,7 @@ config.bind(",m", "spawn umpv '{url}'")
 config.bind(",M", "hint links spawn umpv '{hint-url}'")
 config.bind(",cs", "config-cycle -t -p completion.open_categories [] \"['searchengines', 'quickmarks', 'bookmarks', 'history', 'filesystem']\"")
 
-#collect file and put in the Correct location
-config.bind(",di", "hint images run download --dest '~/img/' {hint-url}")
-config.bind(",df", "hint links run download --dest '~/rxv/fla/' {hint-url}")
-config.bind(",dt", "hint links run download --dest '~/txt/' {hint-url}")
-config.bind(",dv", 'spawn -m yt-dlp {url} -f "bv*+ba" --embed-metadata --embed-subs --embed-chapters --embed-thumbnail --merge-output-format mkv -P "~/vid" -o "%(channel)s/%(upload_date)s-%(title)s.%(ext)s"')
-config.bind(",da", 'spawn -m yt-dlp {url} -f "ba" -x --embed-metadata --embed-thumbnail --audio-format aac -P "~/vid" -o "%(channel)s/%(upload_date)s-%(title)s.%(ext)s"')
-
-#open in a program
-config.bind(",oe", "download-open alac.sh nvim {}")
-config.bind(",of", "download-open flashplayer {}")
-config.bind(",oi", "download-open feh {}")
-config.bind(",om", "download-open umpv '{}'")
-config.bind(",or", "hint links spawn alac.sh nvim {hint-url}")
+config.bind(",or", "hint links spawn alacritty -e nvim {hint-url}")
 
 config.bind(",si", "spawn --userscript invidious")
 
@@ -66,9 +54,4 @@ c.auto_save.session = True
 
 c.editor.command = ["alac.sh", "nvim", "-f", "{}"]
 
-dracula.draw.blood(c, {
-    'spacing': {
-        'vertical': 6,
-        'horizontal': 8
-        }
-    })
+dracula.draw.blood(c, {})

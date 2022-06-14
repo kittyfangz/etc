@@ -1,0 +1,4 @@
+#!/bin/bash
+# coproc
+[ "$ROFI_RETV" -eq 2 ] && coproc ( qutebrowser :"$@" > /dev/null 2>&1 )
+echo -en "\0prompt\x1f\n"

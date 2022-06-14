@@ -1,0 +1,7 @@
+#!/bin/sh
+QBB_LOCATION="$HOME/.config/qutebrowser/bookmarks/urls"
+
+link=$(rofi -dmenu < "$QBB_LOCATION" | cut -d' ' -f1)
+[ -z "$link" ] && exit 1
+
+qutebrowser "$link"

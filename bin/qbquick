@@ -1,0 +1,9 @@
+#!/bin/sh
+# how columnate in rofi. how. how do.
+# also this might not work if any characters in url are interpreted by the shell
+QBQ_LOCATION="$HOME/.config/qutebrowser/quickmarks"
+
+link=$(rofi -dmenu < "$QBQ_LOCATION" | rev | cut -d' ' -f1 | rev)
+[ -z "$link" ] && exit 1
+
+qutebrowser "$link"

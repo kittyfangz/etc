@@ -1,2 +1,0 @@
-#!/bin/sh
-echo '{ "command": ["stop", "keep-playlist"] }' | socat - ~/.umpv_socket

@@ -1,7 +1,7 @@
 font:
   normal:
     family: Terminus
-  size: 11.0
+  size: 11
 
 import:
   - ~/.config/alacritty/dracula/dracula.yml

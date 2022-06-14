@@ -39,7 +39,18 @@ set undofile
 set undodir=$HOME/.viundo
 "}}}
 
-set textwidth=80 exrc secure
+" i dont know what to call this section {{{
+set textwidth=80
+
+" highlight trailing whitespace {{{
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+" }}}
+"}}}
 
 " plugins {{{
 " plugin installation {{{

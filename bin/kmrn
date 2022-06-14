@@ -1,2 +1,0 @@
-#!/bin/sh
-echo '{ "command": ["playlist-next"] }' | socat - ~/.umpv_socket

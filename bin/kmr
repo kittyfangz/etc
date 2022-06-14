@@ -1,0 +1,11 @@
+#!/bin/sh
+cmd='{"command": ['
+
+for i in "$@"
+do
+	cmd="$cmd \"$i\","
+done
+
+cmd=${cmd%?}' ] }'
+
+echo $cmd | socat - ~/.umpv_socket
